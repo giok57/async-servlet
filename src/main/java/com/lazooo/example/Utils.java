@@ -43,9 +43,6 @@ import java.util.List;
 
 /**
  *
- * Actors:
- * (1) AP = the access point who wait for client connections. It long pools the server.
- * (2) CLIENT = the client who want to access the internet by calling the remote server with email and MAC address.
  *
  * @author giok57
  * @email gioelemeoni@gmail.com
