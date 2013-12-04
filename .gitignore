@@ -5,4 +5,6 @@
 *.war
 *.ear
 
+#Intellij idea files
+*.iml
 .idea/
