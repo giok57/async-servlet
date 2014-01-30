@@ -107,8 +107,9 @@ public class Crawler {
         Boolean login = Utils.getUtils().requiredToken(request);
         if(login){
             try{
+                String realIp = request.getHeader("X-Real-IP");
                 PrintWriter outVerbose = new PrintWriter(new BufferedWriter(new FileWriter("verboseUploadCrawler.txt", true)));
-                outVerbose.println("Uploaded at: "+new Date()+"   from ip: "+request.getRemoteAddr()+ "\n\n" + wifis.toString() + "\n\n");
+                outVerbose.println("Uploaded at: "+new Date()+"   from ip: "+realIp+ "\n\n" + wifis.toString() + "\n\n");
                 outVerbose.flush();
                 PrintWriter outJson = new PrintWriter(new BufferedWriter(new FileWriter("jsonUploadCrawler.txt", true)));
                 String json = gson.toJson(wifis);

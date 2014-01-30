@@ -88,7 +88,7 @@ public class Main {
             json = gson.toJson(list);
             try {
 
-                HttpPost request = new HttpPost("http://127.0.0.1:8080/upload");
+                HttpPost request = new HttpPost("http://crawler.onlythebrave.lazooo.com/upload");
                 StringEntity params =new StringEntity(json);
                 request.addHeader("Content-type", "application/json");
                 request.setEntity(params);
