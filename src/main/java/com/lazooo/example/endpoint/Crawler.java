@@ -99,7 +99,7 @@ public class Crawler {
 
     @POST
     @Path("/upload")
-    @Consumes("application/json")
+    @Produces("application/json")
     public void uploadCrawler(String wifisJson,  @Context HttpServletRequest request, @Suspended final AsyncResponse async) {
 
         PrettyList<WifiHour> wifis = gson.fromJson(wifisJson, PrettyList.class);
