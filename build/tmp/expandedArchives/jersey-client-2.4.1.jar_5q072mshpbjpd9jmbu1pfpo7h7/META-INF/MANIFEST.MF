@@ -1,0 +1,47 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1383909058221
+Build-Jdk: 1.6.0_65
+Built-By: lkramoli
+Bundle-Description: Jersey core client implementation
+Bundle-DocURL: http://www.oracle.com/
+Bundle-License: http://glassfish.java.net/public/CDDL+GPL_1_1.html
+Bundle-ManifestVersion: 2
+Bundle-Name: jersey-core-client
+Bundle-SymbolicName: org.glassfish.jersey.core.jersey-client
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 2.4.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.glassfish.jersey.client;uses:="javax.ws.rs,org.glass
+ fish.jersey.message,org.glassfish.jersey.internal,javax.ws.rs.core,org.
+ glassfish.jersey.internal.util,javax.ws.rs.ext,javax.inject,org.glassfi
+ sh.jersey.spi,com.google.common.util.concurrent,org.glassfish.hk2.api,o
+ rg.glassfish.jersey.process.internal,org.glassfish.jersey.internal.inje
+ ct,org.glassfish.jersey.internal.util.collection,org.glassfish.jersey.m
+ essage.internal,org.glassfish.hk2.utilities,org.glassfish.jersey.intern
+ al.spi,org.glassfish.hk2.utilities.binding,org.glassfish.jersey,org.gla
+ ssfish.jersey.model.internal,com.google.common.base,org.glassfish.jerse
+ y.client.spi,javax.ws.rs.client,com.google.common.collect,javax.net.ssl
+ ";version="2.4.1",org.glassfish.jersey.client.filter;uses:="javax.ws.rs
+ .client,javax.ws.rs.core,org.glassfish.jersey.spi,com.google.common.col
+ lect,org.glassfish.hk2.api,javax.inject,org.glassfish.jersey.internal.u
+ til,javax.ws.rs,javax.ws.rs.ext";version="2.4.1",org.glassfish.jersey.c
+ lient.spi;uses:="org.glassfish.jersey.client,javax.ws.rs,org.glassfish.
+ jersey.process";version="2.4.1"
+Import-Package: com.google.common.base;version="[14.0,15)",com.google.co
+ mmon.collect;version="[14.0,15)",com.google.common.util.concurrent;vers
+ ion="[14.0,15)",javax.inject;version="[1.0,2)",javax.net.ssl,javax.ws.r
+ s;version="[2.0,3)",javax.ws.rs.client;version="[2.0,3)",javax.ws.rs.co
+ re;version="[2.0,3)",javax.ws.rs.ext;version="[2.0,3)",org.glassfish.hk
+ 2.api;version="[2.2,3)",org.glassfish.hk2.utilities;version="[2.2,3)",o
+ rg.glassfish.hk2.utilities.binding;version="[2.2,3)",org.glassfish.jers
+ ey;version="[2.4,3)",org.glassfish.jersey.internal;version="[2.4,3)",or
+ g.glassfish.jersey.internal.inject;version="[2.4,3)",org.glassfish.jers
+ ey.internal.l10n;version="[2.4,3)",org.glassfish.jersey.internal.spi;ve
+ rsion="[2.4,3)",org.glassfish.jersey.internal.util;version="[2.4,3)",or
+ g.glassfish.jersey.internal.util.collection;version="[2.4,3)",org.glass
+ fish.jersey.message;version="[2.4,3)",org.glassfish.jersey.message.inte
+ rnal;version="[2.4,3)",org.glassfish.jersey.model.internal;version="[2.
+ 4,3)",org.glassfish.jersey.process;version="[2.4,3)",org.glassfish.jers
+ ey.process.internal;version="[2.4,3)",org.glassfish.jersey.spi;version=
+ "[2.4,3)"
+Tool: Bnd-1.50.0

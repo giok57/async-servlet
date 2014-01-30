@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven Bundle Plugin
+Built-By: joakim
+Build-Jdk: 1.7.0_21
+Implementation-Vendor: Eclipse.org - Jetty
+Implementation-Version: 9.1.0.v20131115
+url: http://www.eclipse.org/jetty
+Export-Package: org.eclipse.jetty.servlet;version="9.1.0",org.eclipse.
+ jetty.servlet.jmx;version="9.1.0",org.eclipse.jetty.servlet.listener;
+ version="9.1.0"
+Bundle-Classpath: .
+Tool: Bnd-1.15.0
+Bundle-Name: Jetty :: Servlet Handling
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Copyright: Copyright (c) 2008-2013 Mort Bay Consulting Pty. Ltd.
+Bundle-Vendor: Eclipse Jetty Project
+Bundle-Version: 9.1.0.v20131115
+Bnd-LastModified: 1384560616867
+Bundle-ManifestVersion: 2
+Bundle-Description: Jetty Servlet Container
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0, http://www
+ .eclipse.org/org/documents/epl-v10.php
+Import-Package: javax.servlet;version="[2.6.0,3.2)",javax.servlet.desc
+ riptor;version="[2.6.0,3.2)",javax.servlet.http;version="[2.6.0,3.2)"
+ ,org.eclipse.jetty.http;version="[9.1,10)",org.eclipse.jetty.io;versi
+ on="[9.1,10)",org.eclipse.jetty.jmx;resolution:=optional;version="9.1
+ ",org.eclipse.jetty.security;version="[9.1,10)",org.eclipse.jetty.ser
+ ver;version="[9.1,10)",org.eclipse.jetty.server.handler;version="[9.1
+ ,10)",org.eclipse.jetty.server.session;version="[9.1,10)",org.eclipse
+ .jetty.util;version="[9.1,10)";resolution:=optional,org.eclipse.jetty
+ .util.annotation;version="[9.1,10)";resolution:=optional,org.eclipse.
+ jetty.util.component;version="[9.1,10)";resolution:=optional,org.ecli
+ pse.jetty.util.log;version="[9.1,10)";resolution:=optional,org.eclips
+ e.jetty.util.resource;version="[9.1,10)";resolution:=optional
+Bundle-SymbolicName: org.eclipse.jetty.servlet
+Bundle-DocURL: http://www.eclipse.org/jetty
+

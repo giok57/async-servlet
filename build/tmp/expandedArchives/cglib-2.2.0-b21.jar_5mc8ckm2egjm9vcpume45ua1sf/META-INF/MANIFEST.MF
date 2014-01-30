@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Export-Package: net.sf.cglib.beans;uses:="org.objectweb.asm,net.sf.cgl
+ ib.core",net.sf.cglib.core;uses:="org.objectweb.asm,org.objectweb.asm
+ .util",net.sf.cglib.proxy;uses:="net.sf.cglib.core,org.objectweb.asm,
+ net.sf.cglib.reflect",net.sf.cglib.reflect;uses:="org.objectweb.asm,n
+ et.sf.cglib.core",net.sf.cglib.transform;uses:="org.objectweb.asm,net
+ .sf.cglib.core,org.apache.tools.ant.types,org.apache.tools.ant",net.s
+ f.cglib.transform.impl;uses:="org.objectweb.asm,net.sf.cglib.transfor
+ m,net.sf.cglib.core",net.sf.cglib.util;uses:="org.objectweb.asm,net.s
+ f.cglib.core"
+Built-By: rgrecour
+Tool: Bnd-1.15.0
+Bundle-Name: cglib version 2.2 repackaged as a module
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: Oracle Corporation
+Build-Jdk: 1.7.0_09
+Bundle-Version: 2.2.0.b21
+Bnd-LastModified: 1381788712534
+Bundle-ManifestVersion: 2
+Bundle-Description: Generic Modules subsystem
+Bundle-License: https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.h
+ tml
+Embed-Dependency: *;scope=compile;inline=true
+Import-Package: org.apache.tools.ant;resolution:=optional,org.apache.t
+ ools.ant.types;resolution:=optional,org.objectweb.asm;password=GlassF
+ ish;resolution:=optional,org.objectweb.asm.util;password=GlassFish
+Bundle-SymbolicName: org.glassfish.hk2.external.cglib
+Bundle-DocURL: http://www.oracle.com
+Archiver-Version: Plexus Archiver
+

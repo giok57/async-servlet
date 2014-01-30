@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Class-Path: jetty-io-9.1.0.v20131115.jar validation-api-1.1.0.Final.ja
+ r jetty-util-9.1.0.v20131115.jar jersey-server-2.4.1.jar jackson-mapp
+ er-asl-1.9.13.jar javax.servlet-api-3.1.0.jar jetty-servlet-9.1.0.v20
+ 131115.jar jackson-core-asl-1.9.13.jar gson-2.2.4.jar httpclient-4.1.
+ 1.jar jetty-security-9.1.0.v20131115.jar jetty-server-9.1.0.v20131115
+ .jar cglib-2.2.0-b21.jar jetty-webapp-9.1.0.v20131115.jar jersey-clie
+ nt-2.4.1.jar osgi-resource-locator-1.0.1.jar commons-codec-1.4.jar je
+ rsey-container-servlet-2.4.1.jar javax.annotation-api-1.2.jar commons
+ -logging-1.1.3.jar asm-all-repackaged-2.2.0-b21.jar jetty-xml-9.1.0.v
+ 20131115.jar hk2-api-2.2.0-b21.jar hk2-locator-2.2.0-b21.jar httpcore
+ -4.1.jar jackson-jaxrs-1.9.13.jar jersey-common-2.4.1.jar jetty-http-
+ 9.1.0.v20131115.jar javax.ws.rs-api-2.0.jar ecwid-mailchimp-2.0.0.1.j
+ ar hk2-utils-2.2.0-b21.jar jersey-container-servlet-core-2.4.1.jar gu
+ ava-14.0.1.jar javax.inject-2.2.0-b21.jar
+Main-Class: com.lazooo.example.Main
+

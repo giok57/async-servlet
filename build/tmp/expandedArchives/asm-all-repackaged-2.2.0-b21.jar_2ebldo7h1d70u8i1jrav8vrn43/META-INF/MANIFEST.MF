@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Export-Package: org.objectweb.asm.util;mandatory:=password;uses:="org.
+ objectweb.asm,org.objectweb.asm.tree,org.objectweb.asm.tree.analysis,
+ org.objectweb.asm.signature";password=GlassFish;version="3.3",org.obj
+ ectweb.asm;mandatory:=password;password=GlassFish;version="3.3",org.o
+ bjectweb.asm.commons;mandatory:=password;uses:="org.objectweb.asm,org
+ .objectweb.asm.tree,org.objectweb.asm.signature";password=GlassFish;v
+ ersion="3.3",org.objectweb.asm.xml;mandatory:=password;uses:="org.obj
+ ectweb.asm,org.xml.sax,org.xml.sax.helpers,org.xml.sax.ext,javax.xml.
+ transform,javax.xml.transform.sax,javax.xml.transform.stream,org.obje
+ ctweb.asm.util";password=GlassFish;version="3.3",org.objectweb.asm.si
+ gnature;mandatory:=password;password=GlassFish;version="3.3",org.obje
+ ctweb.asm.tree;mandatory:=password;uses:="org.objectweb.asm";password
+ =GlassFish;version="3.3",org.objectweb.asm.tree.analysis;mandatory:=p
+ assword;uses:="org.objectweb.asm,org.objectweb.asm.tree";password=Gla
+ ssFish;version="3.3"
+Built-By: rgrecour
+Tool: Bnd-1.15.0
+Bundle-Name: org.objectweb.asm.all version 3.3 repackaged as a module
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: Oracle Corporation
+Build-Jdk: 1.7.0_09
+Bundle-Version: 2.2.0.b21
+Bnd-LastModified: 1381788724060
+Bundle-ManifestVersion: 2
+Bundle-Description: Generic Modules subsystem
+Bundle-License: https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.h
+ tml
+Embed-Dependency: *;scope=compile;inline=true
+Import-Package: javax.xml.transform,javax.xml.transform.sax,javax.xml.
+ transform.stream,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers
+Bundle-SymbolicName: org.glassfish.hk2.external.asm-all-repackaged
+Bundle-DocURL: http://www.oracle.com
+Archiver-Version: Plexus Archiver
+

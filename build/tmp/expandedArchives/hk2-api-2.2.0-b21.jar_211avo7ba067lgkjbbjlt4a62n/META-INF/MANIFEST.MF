@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Export-Package: org.glassfish.hk2.api;uses:="org.jvnet.hk2.annotations
+ ,javax.inject,org.glassfish.hk2.utilities,org.glassfish.hk2.extension
+ ";version="2.2.0",org.glassfish.hk2.extension;uses:="org.glassfish.hk
+ 2.api";version="2.2.0",org.glassfish.hk2.utilities;uses:="org.glassfi
+ sh.hk2.utilities.reflection,javax.inject,org.glassfish.hk2.api,org.jv
+ net.hk2.annotations";version="2.2.0",org.glassfish.hk2.utilities.bind
+ ing;uses:="org.glassfish.hk2.api,org.glassfish.hk2.utilities,org.jvne
+ t.hk2.component,org.glassfish.hk2.utilities.reflection";version="2.2.
+ 0",org.jvnet.hk2.annotations;version="2.2.0"
+Built-By: rgrecour
+Tool: Bnd-1.15.0
+Bundle-Name: HK2 API module
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: Oracle Corporation
+Build-Jdk: 1.7.0_09
+Bundle-Version: 2.2.0.b21
+Bnd-LastModified: 1381788760725
+Bundle-ManifestVersion: 2
+Bundle-Description: HK2 API module
+Bundle-License: https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.h
+ tml
+Import-Package: javax.inject,org.glassfish.hk2.extension;version="[2.2
+ ,3)",org.glassfish.hk2.osgiresourcelocator;version="[1.0,2)";resoluti
+ on:=optional,org.glassfish.hk2.utilities.reflection;version="[2.2,3)"
+ ,org.jvnet.hk2.component;version="[2.2,3)"
+Bundle-SymbolicName: org.glassfish.hk2.api
+Bundle-DocURL: http://www.oracle.com
+Archiver-Version: Plexus Archiver
+
