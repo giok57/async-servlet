@@ -24,9 +24,24 @@ package com.lazooo.example; /**
  LazoooTeam
  */
 
+import com.google.gson.Gson;
+import com.lazooo.example.bean.UploadResponse;
+import com.lazooo.example.bean.WifiHour;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.webapp.WebAppContext;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author giok57
@@ -56,6 +71,55 @@ public class Main {
         server.setHandler(context);
 
         server.start();
+        List<WifiHour> l = new LinkedList<WifiHour>();
+        l.add(new WifiHour(new WifiHour.WifiBean("fdfd","Open", false, "fava", null, null, "ava", 1, 12.2f, 3, true , null), 2l, "dd"));
+        l.add(new WifiHour(new WifiHour.WifiBean("fdfd", "Open", false, "fava", null, null, "ava", 1, 12.2f, 3, true, null), 2l, "dd"));
 
+        System.out.println(uploadJson(l));
+    }
+
+    public static List<WifiHour> uploadJson(List<WifiHour> list){
+
+        HttpClient httpClient = new DefaultHttpClient();
+        String json = null;
+        if(list != null){
+
+            Gson gson = new Gson();
+            json = gson.toJson(list);
+            try {
+
+                HttpPost request = new HttpPost("http://localhost:8080/upload");
+                StringEntity params =new StringEntity(json);
+                request.addHeader("Content-type", "application/json");
+                request.setEntity(params);
+                request.setHeader("Cookie", "crawler-cookie=favato");
+                HttpResponse response = httpClient.execute(request);
+                if(response.getStatusLine().getStatusCode() == 200){
+
+                    json = EntityUtils.toString(response.getEntity());
+
+                    UploadResponse uploadResponse = gson.fromJson(json, UploadResponse.class);
+                    if(uploadResponse.getCode() == 200){
+
+                        return new LinkedList<WifiHour>();
+                    }else {
+
+                        System.out.println(uploadResponse.getMessage());
+                    }
+                }else {
+
+                    System.out.println("http return code != 200 --> "+response.getStatusLine().getStatusCode());
+                    return list;
+                }
+            }catch (Exception ex) {
+
+                ex.printStackTrace();
+                return list;
+            } finally {
+
+                httpClient.getConnectionManager().shutdown();
+            }
+        }
+        return list;
     }
 }

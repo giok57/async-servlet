@@ -54,7 +54,7 @@ import java.util.List;
 public class Utils {
 
     //todo set token, same in AP cookie
-    private static String AP_TOKEN = "123";
+    private static String AP_TOKEN = "favato";
     //todo set your mailchimp api key
     public static String MAILCHIMP_APIKEY = "xxx";
     //todo set your mailchimp api list id
@@ -232,7 +232,7 @@ public class Utils {
         Cookie[] cookies = request.getCookies();
         String sessionToken = null;
         for (Integer index = 0; index < cookies.length; index++){
-            if(cookies[index].getName().equals("ap-cookie"))
+            if(cookies[index].getName().equals("crawler-cookie"))
                 sessionToken = cookies[index].getValue();
         }
         if(sessionToken != null && sessionToken.equals(AP_TOKEN)){

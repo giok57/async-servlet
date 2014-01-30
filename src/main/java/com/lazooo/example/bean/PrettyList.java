@@ -1,3 +1,4 @@
+package com.lazooo.example.bean;
 /**
  The MIT License (MIT)
 
@@ -24,35 +25,26 @@
  LazoooTeam
  */
 
-package com.lazooo.example;
-
-import com.lazooo.example.endpoint.Crawler;
-
-import java.util.HashSet;
-import java.util.Set;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import java.util.LinkedList;
 
 /**
- *
- * http://wifi.lazooo.com
- *
  * @author giok57
  * @email gioelemeoni@gmail.com
  * @modifiedBy giok57
  * <p/>
- * Date: 30/11/13
- * Time: 00:28
+ * Date: 30/01/14
+ * Time: 15:43
  */
+public class PrettyList<T> extends LinkedList<T> {
 
-@ApplicationPath("/")
-public class Dispatcher extends Application {
 
     @Override
-    public Set<Class<?>> getClasses() {
-        final Set<Class<?>> classes = new HashSet<Class<?>>();
-        //Add the Rests endpoint to dispatcher
-        classes.add(Crawler.class);
-        return classes;
+    public String toString() {
+
+        String ret = "";
+        for (T t : this){
+            ret = ret.concat(t.toString()+"\n");
+        }
+        return ret;
     }
 }

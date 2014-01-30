@@ -24,11 +24,14 @@
  LazoooTeam
  */
 
-package com.lazooo.example.view;
+package com.lazooo.example.endpoint;
 
+import com.google.gson.Gson;
+import com.lazooo.example.bean.PrettyList;
+import com.lazooo.example.bean.UploadResponse;
+import com.lazooo.example.bean.WifiHour;
 import org.glassfish.jersey.server.ChunkedOutput;
 import com.lazooo.example.Utils;
-import org.glassfish.jersey.servlet.ServletContainer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
@@ -36,9 +39,12 @@ import javax.ws.rs.container.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.EOFException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -46,7 +52,7 @@ import java.util.concurrent.TimeUnit;
  * Actors:
  * (1) AP = the access point who wait for client connections. It long pools the server.
  * (2) CLIENT = the client who want to access the internet by calling the remote server with email and MAC address.
- * 
+ *
  * @author giok57
  * @email gioelemeoni@gmail.com
  * @modifiedBy giok57
@@ -58,10 +64,11 @@ import java.util.concurrent.TimeUnit;
 
 //try to go http://wifi.lazooo.com/com.lazooo.example/login
 @Path("/")
-public class Rests {
+public class Crawler {
 
     private static int numberOfSuccessResponses = 0;
     private static int numberOfFailures = 0;
+    private static Gson gson = new Gson();
 
     /**
      *
@@ -74,9 +81,10 @@ public class Rests {
     @GET
     @Path("/subscribe")
     @Produces({MediaType.TEXT_PLAIN})
-    public void clientSubscribe(@Suspended final AsyncResponse asyncResponse,
+    public void clientSubscribe(@Suspended final AsyncResponse asyncResponse, @Context HttpServletRequest req,
                                 @QueryParam("email") String email, @QueryParam("mac") String mac){
 
+        System.out.println(req.getQueryString());
         if(Utils.paramsRequired(mac, email) == false){
             asyncResponse.resume("miss some shit!");
         }else {
@@ -88,24 +96,30 @@ public class Rests {
     }
 
 
-    /**
-     *
-     * AP long polling fetch endpoint.
-     * Requires "ap-cookie" setted with value {@link Utils#AP_TOKEN}
-     *
-     */
-    @GET
-    @Path("/supercalifragilistichespiralitoso")
-    @Produces({MediaType.TEXT_PLAIN})
 
-    public void apWaiting(@Context HttpServletRequest request, @Suspended final AsyncResponse async) {
+    @POST
+    @Path("/upload")
+    @Consumes("application/json")
+    public void uploadCrawler(String wifisJson,  @Context HttpServletRequest request, @Suspended final AsyncResponse async) {
 
+        PrettyList<WifiHour> wifis = gson.fromJson(wifisJson, PrettyList.class);
         Boolean login = Utils.getUtils().requiredToken(request);
         if(login){
-            //get first entered in client login requests queue
-            Utils.getUtils().pop(async);
+            try{
+                PrintWriter outVerbose = new PrintWriter(new BufferedWriter(new FileWriter("verboseUploadCrawler.txt", true)));
+                outVerbose.println("Uploaded at: "+new Date()+"   from ip: "+request.getRemoteAddr()+ "\n\n" + wifis.toString() + "\n\n");
+                outVerbose.flush();
+                PrintWriter outJson = new PrintWriter(new BufferedWriter(new FileWriter("jsonUploadCrawler.txt", true)));
+                String json = gson.toJson(wifis);
+                outJson.println(json+",");
+                outJson.flush();
+
+                async.resume(gson.toJson(new UploadResponse("Great Upload!", 200, 3*60, 60*60)));
+            }catch (IOException e) {
+                async.resume(gson.toJson(new UploadResponse("Error writing file: "+e.getMessage(), 197, -1, -1)));
+            }
         }else {
-            async.resume("You are not allowed here");
+            async.resume(gson.toJson(new UploadResponse("not allowed here", 199, -1, -1)));
         }
     }
 

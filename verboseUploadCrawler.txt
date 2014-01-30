@@ -1,0 +1,27 @@
+Uploaded at: Thu Jan 30 15:49:52 CET 2014   from ip: 127.0.0.1
+
+
+
+
+Uploaded at: Thu Jan 30 15:50:34 CET 2014   from ip: 127.0.0.1
+
+ ee
+
+
+Uploaded at: Thu Jan 30 15:51:05 CET 2014   from ip: 127.0.0.1
+
+
+
+
+Uploaded at: Thu Jan 30 15:51:40 CET 2014   from ip: 127.0.0.1
+
+
+
+
+Uploaded at: Thu Jan 30 15:52:11 CET 2014   from ip: 127.0.0.1
+
+{ready=false, userMoving=false, connId=dd, wifiBean={security=Open, isRedirect=false, wifiId=fdfd, ssid=fava, redirectPage=ava, connTime=1.0, isInternet=true, connSpeed={avg=12.2, sum=12.2, nr=1.0}, signStr=3.0}, time=2.0}
+{ready=false, userMoving=false, connId=dd, wifiBean={security=Open, isRedirect=false, wifiId=fdfd, ssid=fava, redirectPage=ava, connTime=1.0, isInternet=true, connSpeed={avg=12.2, sum=12.2, nr=1.0}, signStr=3.0}, time=2.0}
+
+
+
