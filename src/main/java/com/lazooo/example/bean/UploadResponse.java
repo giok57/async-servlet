@@ -37,14 +37,16 @@ public class UploadResponse {
 
     private String message;
     private int code;
-    private int newWifiUpdateInterval;
-    private int newUploadInterval;
+    private int newMeasureEvery;
+    private int newUploadEvery;
+    private int newReadyAfter;
 
-    public UploadResponse(String message, int code, int newWifiUpdateInterval, int newUploadInterval) {
+    public UploadResponse(String message, int code, int newMeasureEvery, int newUploadEvery, int newReadyAfter) {
         this.message = message;
         this.code = code;
-        this.newWifiUpdateInterval = newWifiUpdateInterval;
-        this.newUploadInterval = newUploadInterval;
+        this.newMeasureEvery = newMeasureEvery;
+        this.newUploadEvery = newUploadEvery;
+        this.newReadyAfter = newReadyAfter;
     }
 
     public String getMessage() {
@@ -63,29 +65,27 @@ public class UploadResponse {
         this.code = code;
     }
 
-    public int getNewWifiUpdateInterval() {
-        return newWifiUpdateInterval;
+    public int getNewMeasureEvery() {
+        return newMeasureEvery;
     }
 
-    public void setNewWifiUpdateInterval(int newWifiUpdateInterval) {
-        this.newWifiUpdateInterval = newWifiUpdateInterval;
+    public void setNewMeasureEvery(int newMeasureEvery) {
+        this.newMeasureEvery = newMeasureEvery;
     }
 
-    public int getNewUploadInterval() {
-        return newUploadInterval;
+    public int getNewUploadEvery() {
+        return newUploadEvery;
     }
 
-    public void setNewUploadInterval(int newUploadInterval) {
-        this.newUploadInterval = newUploadInterval;
+    public void setNewUploadEvery(int newUploadEvery) {
+        this.newUploadEvery = newUploadEvery;
     }
 
-    @Override
-    public String toString() {
-        return "UploadResponse{" +
-                "message='" + message + '\'' +
-                ", code=" + code +
-                ", newWifiUpdateInterval=" + newWifiUpdateInterval +
-                ", newUploadInterval=" + newUploadInterval +
-                '}';
+    public int getNewReadyAfter() {
+        return newReadyAfter;
+    }
+
+    public void setNewReadyAfter(int newReadyAfter) {
+        this.newReadyAfter = newReadyAfter;
     }
 }
