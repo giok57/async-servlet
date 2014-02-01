@@ -41,13 +41,15 @@ public class WifiHour {
     boolean userMoving;
     String connId;
     WifiBean wifiBean;
-    long time;
-
-    public WifiHour(WifiBean wifiBean, long time, String connId){
+    long timeSince;
+    long timeLast;
+    //
+    WifiHour(WifiBean wifiBean, long time, String connId){
 
         this.ready = false;
         this.wifiBean = wifiBean;
-        this.time = time;
+        this.timeSince = time;
+        this.timeLast = time;
         this.connId = connId;
         this.userMoving = false;
     }
@@ -59,11 +61,13 @@ public class WifiHour {
                 "    userMoving=" + userMoving + "\n" +
                 "    connId='" + connId + '\'' + "\n\n" +
                 "    wifiBean=" + wifiBean + "\n" +
-                "    time=" + time + "\n" +
+                "    timeLast=" + timeLast + "\n" +
+                "    timeSince=" + timeSince + "\n" +
                 '}' + "\n";
     }
 
-    public static class WifiBean {
+
+    public class WifiBean {
         private String security;
         private boolean isRedirect;
         private Set<String> wifiAround;
@@ -73,12 +77,14 @@ public class WifiHour {
         private String redirectPage;
         private Set<Location> locations;
         private int connTime;
+        private int internetConnTime;
+        private float mbDown;
         private boolean isInternet;
         private Avg connSpeed;
         private int signStr;
 
         public WifiBean(String wifiId, String security, boolean isRedirect, String ssid,
-                        Set<String> mac, Set<String> wifiAround, String redirectPage,
+                        Set<String> mac, Set<String> wifiAround, String redirectPage, int internetConnTime, float mbDown,
                         int connTime, float connSpeed, int signStr, boolean isInternet, Set<Location> locations) {
             this.wifiId = wifiId;
             this.security = security;
@@ -88,10 +94,12 @@ public class WifiHour {
             this.macs = mac;
             this.wifiAround = wifiAround;
             this.isInternet = isInternet;
+            this.mbDown = mbDown;
             this.connTime = connTime;
             this.connSpeed = new Avg(connSpeed);
             this.signStr = signStr;
             this.locations = locations;
+            this.internetConnTime = internetConnTime;
         }
 
         public String getSecurity() {
@@ -190,77 +198,96 @@ public class WifiHour {
             this.locations = locations;
         }
 
+        public int getInternetConnTime() {
+            return internetConnTime;
+        }
+
+        public void setInternetConnTime(int internetConnTime) {
+            this.internetConnTime = internetConnTime;
+        }
+
+        public float getMbDown() {
+            return mbDown;
+        }
+
+        public void setMbDown(float mbDown) {
+            this.mbDown = mbDown;
+        }
+
         @Override
         public String toString() {
             String redirectShort = "";
             if(redirectPage != null && redirectPage.length() > 10){
                 redirectShort = redirectPage.substring(0, 10);
             }
-            return "WifiBean{\n" +
-                    "        security='" + security + '\'' + "\n" +
-                    "        isRedirect=" + isRedirect + "\n" +
-                    "        wifiAround=" + wifiAround + "\n" +
-                    "        wifiId='" + wifiId + '\'' + "\n" +
-                    "        ssid='" + ssid + '\'' + "\n" +
-                    "        macs=" + macs + "\n" +
-                    "        redirectPage='" + redirectShort + '\'' + "\n" +
-                    "        locations=" + locations + "\n" +
-                    "        connTime=" + connTime + "\n" +
-                    "        isInternet=" + isInternet + "\n" +
-                    "        connSpeed=" + connSpeed + "\n" +
-                    "        signStr=" + signStr + "\n" +
-                    "    }" + "\n";
-        }
-
-        public static class Avg{
-            float avg;
-            float sum;
-            int nr;
-            Avg(float val){
-                this.avg = val;
-                this.sum = val;
-                this.nr = 1;
-            }
-            Avg(){
-                avg = 0;
-                sum = 0;
-                nr = 0;
-            }
-
-            void addVal(float val){
-                sum += val;
-                nr++;
-                avg = sum / ((float)nr);
-            }
-
-            float getAvg(){
-                return avg;
-            }
-
-            @Override
-            public String toString(){
-                return String.valueOf(avg);
-            }
-        }
-
-        public static class Location{
-            float accurancy;
-            double lat;
-            double lon;
-            Location(double lat, double lon, float accurancy){
-                this.lat = lat;
-                this.lon = lon;
-                this.accurancy = accurancy;
-            }
-
-            @Override
-            public String toString() {
-                return "Location{" +
-                        "accurancy=" + accurancy +
-                        ", lat=" + lat +
-                        ", lon=" + lon +
-                        '}';
-            }
+            return "    WifiBean {" +
+                    "       security='" + security + '\'' +
+                    "       isRedirect=" + isRedirect +
+                    "       wifiAround=" + wifiAround +
+                    "       wifiId='" + wifiId + '\'' +
+                    "       ssid='" + ssid + '\'' +
+                    "       macs=" + macs +
+                    "       redirectPage='" + redirectPage + '\'' +
+                    "       locations=" + locations +
+                    "       connTime=" + connTime +
+                    "       internetConnTime=" + internetConnTime +
+                    "       mbDown=" + mbDown +
+                    "       isInternet=" + isInternet +
+                    "       connSpeed=" + connSpeed +
+                    "       signStr=" + signStr +
+                    "   }";
         }
     }
+
+    public static class Avg{
+        float avg;
+        float sum;
+        int nr;
+        Avg(float val) {
+            this.avg = val;
+            this.sum = val;
+            this.nr = 1;
+        }
+        Avg() {
+            avg = 0;
+            sum = 0;
+            nr = 0;
+        }
+
+        void addVal(float val){
+            sum += val;
+            nr++;
+            avg = sum / ((float)nr);
+        }
+
+        float getAvg(){
+            return avg;
+        }
+
+        @Override
+        public String toString(){
+            return String.valueOf(avg);
+        }
+    }
+
+    public static class Location{
+        float accurancy;
+        double lat;
+        double lon;
+        Location(double lat, double lon, float accurancy){
+            this.lat = lat;
+            this.lon = lon;
+            this.accurancy = accurancy;
+        }
+
+        @Override
+        public String toString() {
+            return "Location{" +
+                    "accurancy=" + accurancy +
+                    ", lat=" + lat +
+                    ", lon=" + lon +
+                    '}';
+        }
+    }
+
 }

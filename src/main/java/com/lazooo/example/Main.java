@@ -71,11 +71,7 @@ public class Main {
         server.setHandler(context);
 
         server.start();
-        List<WifiHour> l = new LinkedList<WifiHour>();
-        l.add(new WifiHour(new WifiHour.WifiBean("fdfd","Open", false, "fava", null, null, "ava", 1, 12.2f, 3, true , null), 2l, "dd"));
-        l.add(new WifiHour(new WifiHour.WifiBean("fdfd", "Open", false, "fava", null, null, "ava", 1, 12.2f, 3, true, null), 2l, "dd"));
 
-        System.out.println(uploadJson(l));
     }
 
     public static List<WifiHour> uploadJson(List<WifiHour> list){
