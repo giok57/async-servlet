@@ -274,9 +274,11 @@ public class WifiHour {
         float accurancy;
         double lat;
         double lon;
-        Location(double lat, double lon, float accurancy){
+        float speed;
+        Location(double lat, double lon, float accurancy, float speed){
             this.lat = lat;
             this.lon = lon;
+            this.speed = speed;
             this.accurancy = accurancy;
         }
 
@@ -284,6 +286,7 @@ public class WifiHour {
         public String toString() {
             return "Location{" +
                     "accurancy=" + accurancy +
+                    "speed=" + speed +
                     ", lat=" + lat +
                     ", lon=" + lon +
                     '}';
