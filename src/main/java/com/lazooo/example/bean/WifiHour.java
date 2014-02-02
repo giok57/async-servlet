@@ -60,7 +60,7 @@ public class WifiHour {
                 "    ready=" + ready + "\n" +
                 "    userMoving=" + userMoving + "\n" +
                 "    connId='" + connId + '\'' + "\n\n" +
-                "    wifiBean=" + wifiBean + "\n" +
+                "    wifiBean=" + wifiBean.toString() + "\n" +
                 "    timeLast=" + timeLast + "\n" +
                 "    timeSince=" + timeSince + "\n" +
                 '}' + "\n";
@@ -221,11 +221,11 @@ public class WifiHour {
                 redirectShort = redirectPage.substring(0, 10);
             }
             return "    WifiBean {" +
+                    "       ssid='" + ssid + '\'' +
                     "       security='" + security + '\'' +
                     "       isRedirect=" + isRedirect +
                     "       wifiAround=" + wifiAround +
                     "       wifiId='" + wifiId + '\'' +
-                    "       ssid='" + ssid + '\'' +
                     "       macs=" + macs +
                     "       redirectPage='" + redirectPage + '\'' +
                     "       locations=" + locations +
