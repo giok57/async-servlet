@@ -116,7 +116,7 @@ public class Crawler {
                 outJson.println(json+",");
                 outJson.flush();
 
-                async.resume(gson.toJson(new UploadResponse("Great Upload!", 200, 3*60, 60*60, 60*150)));
+                async.resume(gson.toJson(new UploadResponse("Great Upload!", 200, 6*60, 60*60, 60*150)));
             }catch (IOException e) {
                 async.resume(gson.toJson(new UploadResponse("Error writing file: "+e.getMessage(), 197, -1, -1, -1)));
             }
