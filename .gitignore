@@ -8,3 +8,5 @@
 #Intellij idea files
 *.iml
 .idea/
+.gradle/
+*.bin
