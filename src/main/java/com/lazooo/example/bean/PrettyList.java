@@ -35,14 +35,14 @@ import java.util.LinkedList;
  * Date: 30/01/14
  * Time: 15:43
  */
-public class PrettyList<T> extends LinkedList<T> {
+public class PrettyList extends LinkedList<WifiHour> {
 
 
     @Override
     public String toString() {
 
         String ret = "";
-        for (T t : this){
+        for (WifiHour t : this){
             ret = ret.concat(t.toString()+"\n");
         }
         return ret;

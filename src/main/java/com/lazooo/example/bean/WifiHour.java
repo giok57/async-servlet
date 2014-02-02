@@ -44,7 +44,7 @@ public class WifiHour {
     long timeSince;
     long timeLast;
     //
-    WifiHour(WifiBean wifiBean, long time, String connId){
+    public WifiHour(WifiBean wifiBean, long time, String connId){
 
         this.ready = false;
         this.wifiBean = wifiBean;
@@ -56,18 +56,17 @@ public class WifiHour {
 
     @Override
     public String toString() {
-        return "WifiHour\n" +
-                "    ready=" + ready + "\n" +
-                "    userMoving=" + userMoving + "\n" +
-                "    connId='" + connId + '\'' + "\n\n" +
-                "    wifiBean=" + wifiBean.toString() + "\n" +
-                "    timeLast=" + timeLast + "\n" +
-                "    timeSince=" + timeSince + "\n" +
-                '}' + "\n";
+        return "WifiHour{" +
+                "ready=" + ready +
+                ", userMoving=" + userMoving +
+                ", connId='" + connId + '\'' +
+                ", wifiBean=" + wifiBean +
+                ", timeSince=" + timeSince +
+                ", timeLast=" + timeLast +
+                '}';
     }
 
-
-    public class WifiBean {
+    public static class WifiBean {
         private String security;
         private boolean isRedirect;
         private Set<String> wifiAround;
@@ -83,7 +82,7 @@ public class WifiHour {
         private Avg connSpeed;
         private int signStr;
 
-        public WifiBean(String wifiId, String security, boolean isRedirect, String ssid,
+        public  WifiBean(String wifiId, String security, boolean isRedirect, String ssid,
                         Set<String> mac, Set<String> wifiAround, String redirectPage, int internetConnTime, float mbDown,
                         int connTime, float connSpeed, int signStr, boolean isInternet, Set<Location> locations) {
             this.wifiId = wifiId;
@@ -220,22 +219,22 @@ public class WifiHour {
             if(redirectPage != null && redirectPage.length() > 10){
                 redirectShort = redirectPage.substring(0, 10);
             }
-            return "    WifiBean {" +
-                    "       ssid='" + ssid + '\'' +
-                    "       security='" + security + '\'' +
-                    "       isRedirect=" + isRedirect +
-                    "       wifiAround=" + wifiAround +
-                    "       wifiId='" + wifiId + '\'' +
-                    "       macs=" + macs +
-                    "       redirectPage='" + redirectPage + '\'' +
-                    "       locations=" + locations +
-                    "       connTime=" + connTime +
-                    "       internetConnTime=" + internetConnTime +
-                    "       mbDown=" + mbDown +
-                    "       isInternet=" + isInternet +
-                    "       connSpeed=" + connSpeed +
-                    "       signStr=" + signStr +
-                    "   }";
+            return "\nWifiBean {" +
+                    " ssid='" + ssid + '\'' +
+                    " security='" + security + '\'' +
+                    " isRedirect=" + isRedirect +
+                    " wifiAround=" + wifiAround +
+                    " wifiId='" + wifiId + '\'' +
+                    " macs=" + macs +
+                    " redirectPage='" + redirectPage + '\'' +
+                    " locations=" + locations +
+                    " connTime=" + connTime +
+                    " internetConnTime=" + internetConnTime +
+                    " mbDown=" + mbDown +
+                    " isInternet=" + isInternet +
+                    " connSpeed=" + connSpeed +
+                    " signStr=" + signStr +
+                    "}\n";
         }
     }
 

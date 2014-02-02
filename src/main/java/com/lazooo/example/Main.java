@@ -40,6 +40,7 @@ import org.eclipse.jetty.webapp.WebAppContext;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -72,6 +73,13 @@ public class Main {
 
         server.start();
 
+        LinkedList<WifiHour> l = new LinkedList<WifiHour>();
+        l.add(new WifiHour(new WifiHour.WifiBean("id","OPEN", true, "ssid", new HashSet<String>(), new HashSet<String>(), "redir", 1
+                ,1,1,1,1,true, new HashSet<WifiHour.Location>()),1,"ff"));
+        l.add(new WifiHour(new WifiHour.WifiBean("id","OPEN", true, "ssid", new HashSet<String>(), new HashSet<String>(), "redir", 1
+                ,1,1,1,1,true, new HashSet<WifiHour.Location>()),1,"ff"));
+        System.out.println(uploadJson(l));
+
     }
 
     public static List<WifiHour> uploadJson(List<WifiHour> list){
@@ -84,7 +92,7 @@ public class Main {
             json = gson.toJson(list);
             try {
 
-                HttpPost request = new HttpPost("http://crawler.onlythebrave.lazooo.com/upload");
+                HttpPost request = new HttpPost("http://localhost:8080/upload");
                 StringEntity params =new StringEntity(json);
                 request.addHeader("Content-type", "application/json");
                 request.setEntity(params);
