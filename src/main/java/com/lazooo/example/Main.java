@@ -78,7 +78,7 @@ public class Main {
                 ,1,1,1,1,true, new HashSet<WifiHour.Location>()),1,"ff"));
         l.add(new WifiHour(new WifiHour.WifiBean("id","OPEN", true, "ssid", new HashSet<String>(), new HashSet<String>(), "redir", 1
                 ,1,1,1,1,true, new HashSet<WifiHour.Location>()),1,"ff"));
-        System.out.println(uploadJson(l));
+        ///System.out.println(uploadJson(l));
 
     }
 
