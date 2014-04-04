@@ -58,7 +58,7 @@ public class Main {
         Server server = new Server();
 
         ServerConnector s = new ServerConnector(server);
-        s.setPort(8080);
+        s.setPort(8000);
 
         server.addConnector(s);
 
@@ -92,7 +92,7 @@ public class Main {
             json = gson.toJson(list);
             try {
 
-                HttpPost request = new HttpPost("http://localhost:8080/upload");
+                HttpPost request = new HttpPost("http://localhost:8000/upload");
                 StringEntity params =new StringEntity(json);
                 request.addHeader("Content-type", "application/json");
                 request.setEntity(params);
